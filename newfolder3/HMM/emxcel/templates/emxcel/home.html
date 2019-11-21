@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load staticfiles %}
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body id="bg" style="background-image: url('{%static "emxcel/image/grasssky.jpeg"%}');">
+  <style type="text/css">
+  #bg {
+    background-size:  2000px 3000px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+
+  }
+  </style>
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Emxcel</a>
+    </div>
+    {% block menu %}
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home</a></li>
+
+    </ul>
+    {% endblock %}
+  </div>
+</nav>
+  
+<div class="container" style="margin-top:50px">
+  <br>
+  {% block content %}
+  <form method="post">
+    {% csrf_token %}
+
+    username:<input type="text" name="username"><br>
+    password:<input type="password" name="password"><br>
+    <input type="submit" name="login" value="login">
+  </form>
+  <br>
+
+  <a href="/register">signup</a>
+    {% endblock %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends "emxcel/home.html" %}
+{% block content %}
+<form action="." method="post">
+	{% csrf_token %}
+	<h1>Do you want to delete the employeedetails"{{object.title}}"?</h1>
+	<p><input type="submit" value="yes" /><a href="../">cancel</a></p>
+	
+	<input type="submit" name="">
+ 
+</form>
+
+{% endblock %}
+
+

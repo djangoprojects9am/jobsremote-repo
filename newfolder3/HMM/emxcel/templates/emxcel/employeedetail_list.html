@@ -1,0 +1,36 @@
+{% extends "emxcel/home.html" %}
+{% block menu %}
+<ul class="nav navbar-nav">
+      <li class="active"><a href="/create_employee">newemployee</a></li><br>
+      {% endblock %}
+
+      {% block content %}
+    
+      <h1>showing employee details</h1><br>
+
+      <table border="2">
+      	<tr>
+      		<th>employeename</th>
+      		<th>employeeno</th>
+      		<th>employeesal</th>
+      		<th>eemail</th>
+      		<!-- <th>email</th> -->
+      	</tr>
+      	{% for object in object_list %}
+      	<tr>
+      		<td>{{ object.empname }}</td>
+      		<td>{{ object.empno }}</td>
+      		<td>{{ object.empsal }}</td>
+      		<td>{{ object.eemail }}</td>
+      		<!-- <td>{{ object.email }}</td> -->
+      		<td>
+      			<a href="/empdetail_update/{{ object.id }}">UPDATE |</a>
+      			<a href="/empdetail_delete/{{ object.id }}">DELETE</a>
+      	</tr>
+
+      	{% endfor %}
+
+      	
+      </table>
+
+{% endblock %}

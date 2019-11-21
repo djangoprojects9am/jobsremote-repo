@@ -1,0 +1,33 @@
+{% extends "emxcel/home.html" %}
+{% block menu %}
+<ul class="nav navbar-nav">
+      <li class="active"><a href="/create_bank">newempbank</a></li><br>
+      {% endblock  %}
+      {% block content %}
+      <h1>showing bank details</h1><br>
+      <table border="2">
+      	<tr>
+      		<th>Bankname</th>
+      		<th>IFSC</th>
+      		<th>Address</th>
+                  <th>bemail</th>
+      	</tr>
+      	{% for object in object_list %}
+      	<tr>
+      		<td>{{ object.bankname }}</td>
+      		<td>{{ object.address }}</td>
+      		<td>{{ object.ifsc }}</td>
+                  <td>{{ object.bemail }}</td>
+                 
+      		<td>
+      			<a href="/bankdetail_update/{{ object.id }}">UPDATE |</a>
+      			<a href="/bankdetail_delete/{{ object.id }}">DELETE</a>
+      	</tr>
+
+      	{% endfor %}
+
+      	
+      </table>
+
+    
+{% endblock %}
